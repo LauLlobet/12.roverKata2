@@ -4,10 +4,11 @@ import roverkata.instructions.Instruction;
 
 public class Rover {
     private final Plateau plateau;
-    private Position position = new Position(0,0,Orientation.NORTH);
+    private Position position;
 
-    public Rover(Plateau plateau) {
+    public Rover(Plateau plateau, Position position) {
         this.plateau = plateau;
+        this.position = position;
     }
 
     public Orientation getOrientation() {
@@ -65,10 +66,6 @@ public class Rover {
                 break;
         }
         position = plateau.wrapAroundIfOutisde(position);
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
     }
 
     public void applyInstruction(String instructionChain) {

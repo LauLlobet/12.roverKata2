@@ -2,9 +2,6 @@ package roverkata;
 
 import org.junit.Before;
 import org.junit.Test;
-import roverkata.Orientation;
-import roverkata.Position;
-import roverkata.Rover;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
@@ -15,7 +12,7 @@ public class RoverShould {
 
     @Before
     public void setUp(){
-        rover = new Rover(new Plateau(3,3));
+        rover = new Rover(new Plateau(3,3), new Position(0, 0, Orientation.NORTH));
     }
 
     @Test
@@ -40,7 +37,7 @@ public class RoverShould {
     public void
     wrap_around_defined_plateau_coordinates() {
 
-        rover.setPosition(new Position(0,0,Orientation.WEST));
+        rover.spinLeft();
         for(int i=0; i<5;i++){
             rover.move();
         }
@@ -50,7 +47,7 @@ public class RoverShould {
     @Test
     public void
     receive_instruction() {
-        rover.setPosition(new Position(0,0, Orientation.WEST));
+        rover.spinLeft();
         rover.applyInstruction("MMMMM");
         assertEquals(rover.getPosition(),new Position(1,0,Orientation.WEST));
     }
