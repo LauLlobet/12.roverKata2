@@ -68,12 +68,4 @@ public class Rover {
         position = plateau.wrapAroundIfOutisde(position);
     }
 
-    public void applyInstruction(String instructionChain) {
-        char[] instructions = instructionChain.toCharArray();
-        for (char instructionChar: instructions
-             ) {
-            Instruction instruction = Instruction.defineFrom(instructionChar);
-            instruction.apply(this);
-        }
-    }
 }

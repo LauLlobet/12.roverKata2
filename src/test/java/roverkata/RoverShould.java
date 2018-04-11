@@ -43,12 +43,4 @@ public class RoverShould {
         }
        assertThat(rover.getPosition(),is(new Position(1,0,Orientation.WEST)));
     }
-
-    @Test
-    public void
-    receive_instruction() {
-        rover.spinLeft();
-        rover.applyInstruction("MMMMM");
-        assertEquals(rover.getPosition(),new Position(1,0,Orientation.WEST));
-    }
 }
