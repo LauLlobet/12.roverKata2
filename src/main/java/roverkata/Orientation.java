@@ -1,41 +1,36 @@
 package roverkata;
 
 public enum Orientation {
-    NORTH("N"),SOUTH("S"),EAST("E"),WEST("W");
+    NORTH("N"),
+    WEST("W"),
+    SOUTH("S"),
+    EAST("E");
+
+    static {
+        NORTH.left = WEST;
+        SOUTH.left = EAST;
+        EAST.left = NORTH;
+        WEST.left = SOUTH;
+        NORTH.right = EAST;
+        SOUTH.right = WEST;
+        EAST.right = SOUTH;
+        WEST.right = NORTH;
+    }
 
     private String string;
+    private Orientation right;
+    private Orientation left;
 
-
-    Orientation(String string) {
+    Orientation(String string){
         this.string = string;
     }
 
     public Orientation spinLeft() {
-        switch (this){
-            case WEST:
-                return Orientation.SOUTH;
-            case SOUTH:
-                return Orientation.EAST;
-            case EAST:
-                return Orientation.NORTH;
-            case NORTH:
-                return Orientation.WEST;
-        }
-        return this;
+        return left;
     }
 
     public Orientation spinRight() {
-        switch (this){
-            case WEST:
-                return Orientation.NORTH;
-            case SOUTH:
-                return Orientation.WEST;
-            case EAST:
-                return Orientation.SOUTH;
-            case NORTH:
-                return Orientation.EAST;
-        }
-        return this;
+        return right;
     }
 
 
