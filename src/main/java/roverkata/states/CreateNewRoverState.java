@@ -2,7 +2,7 @@ package roverkata.states;
 
 import roverkata.*;
 
-public class CreateActualRoverState extends State {
+public class CreateNewRoverState extends State {
 
     @Override
     protected State nextState(App context) {

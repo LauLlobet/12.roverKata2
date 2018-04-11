@@ -10,7 +10,7 @@ public class StartPlateauState extends State{
     @Override
     protected State nextState(App context) {
         startPlateau(context);
-        return new CreateActualRoverState();
+        return new CreateNewRoverState();
     }
 
     private void startPlateau(App context) {

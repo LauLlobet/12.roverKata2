@@ -8,7 +8,7 @@ public class MoveRoverState extends State {
     @Override
     protected State nextState(App context) {
         moveRover(context);
-        return new CreateActualRoverState();
+        return new CreateNewRoverState();
     }
 
     private void moveRover(App context) {
