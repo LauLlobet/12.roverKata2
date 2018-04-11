@@ -1,19 +1,23 @@
 package roverkata.states;
 
-import roverkata.App1;
+import roverkata.App;
 import roverkata.Plateau;
 
 import java.util.Arrays;
 
 public class StartPlateauState extends State{
+
     @Override
-    public State nextState(String input, App1 context) {
-        startPlateau(input,context);
+    protected State nextState(App context) {
+        startPlateau(context);
         return new CreateActualRoverState();
     }
 
-    public void startPlateau(String input, App1 context) {
-        Integer[] inputInts = Arrays.stream(input.split(" ")).map(x -> Integer.parseInt(x)).toArray(Integer[]::new);
+    private void startPlateau(App context) {
+        Integer[] inputInts = Arrays.stream(cliCommandArguments)
+                .map(Integer::parseInt)
+                .toArray(Integer[]::new);
+
         context.setPlateau( new Plateau(inputInts[0], inputInts[1]));
     }
 }

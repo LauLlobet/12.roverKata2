@@ -3,19 +3,18 @@ package roverkata.states;
 import roverkata.*;
 
 public class CreateActualRoverState extends State {
+
     @Override
-    public State nextState(String input, App1 context) {
-        createActualRover(input,context);
+    protected State nextState(App context) {
+        createActualRover(context);
         return new MoveRoverState();
     }
 
-    public void createActualRover(String input, App1 app1) {
-        String[] results = input.split(" ");
+    public void createActualRover(App app) {
+        Rover currentRover = createRoverFormInput(app.getPlateau(), cliCommandArguments);
 
-        Rover currentRover = createRoverFormInput(app1.getPlateau(), results);
-
-        app1.setCurrentRover(currentRover);
-        app1.prepareInstructionApplyierFromCurrentRover();
+        app.setCurrentRover(currentRover);
+        app.prepareInstructionApplyierFromCurrentRover();
     }
 
     private Rover createRoverFormInput(Plateau plateau, String[] results) {

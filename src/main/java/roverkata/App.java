@@ -3,7 +3,7 @@ package roverkata;
 import roverkata.states.StartPlateauState;
 import roverkata.states.State;
 
-public class App1 {
+public class App {
     private Plateau plateau;
     private Rover currentRover;
     private InstructionsApplyier instructionsApplyier;
@@ -11,10 +11,8 @@ public class App1 {
     private State state = new StartPlateauState();
 
     public void sendInput(String input) {
-        state = state.nextState(input, this);
+        state = state.parseInputAndDoState(input, this);
     }
-
-
 
     public int getPlateauHeigth() {
         return plateau.getHeigth();

@@ -1,9 +1,16 @@
 package roverkata.states;
 
-import roverkata.App1;
+import roverkata.App;
 
-public abstract class State {
+public class State {
 
-    public abstract State nextState(String input, App1 context);
+    String[] cliCommandArguments;
+    public State parseInputAndDoState(String input, App context){
+        cliCommandArguments = input.split(" ");
+        return nextState(context);
+    }
+    protected State nextState(App context){
+        return this;
+    }
 
 }

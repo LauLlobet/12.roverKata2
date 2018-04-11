@@ -1,18 +1,19 @@
 package roverkata.states;
 
-import roverkata.App1;
+import roverkata.App;
 import roverkata.InstructionsApplyier;
 
 public class MoveRoverState extends State {
+
     @Override
-    public State nextState(String input, App1 context) {
-        moveRover(input,context);
+    protected State nextState(App context) {
+        moveRover(context);
         return new CreateActualRoverState();
     }
 
-    private void moveRover(String input, App1 context) {
+    private void moveRover(App context) {
         InstructionsApplyier instructionsApplyier = context.getInstructionsApplyier();
-        instructionsApplyier.applyInstruction(input);
+        instructionsApplyier.applyInstruction(cliCommandArguments[0]);
         context.addCurrentRoverToOutput();
     }
 }
