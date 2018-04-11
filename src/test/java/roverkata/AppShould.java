@@ -25,7 +25,7 @@ public class AppShould {
 
    @Test
    public void
-   create_a_rover_at_second_instrucction() {
+   create_a_rover_at_second_instrucction_and_apply_instrucctions_at_third_input() {
         app1.sendInput("5 5");
         app1.sendInput("1 2 N");
 

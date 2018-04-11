@@ -4,7 +4,7 @@ public class Rover {
     private final Plateau plateau;
     private Position position;
 
-    Rover(Plateau plateau, Position position) {
+    public Rover(Plateau plateau, Position position) {
         this.plateau = plateau;
         this.position = position;
     }

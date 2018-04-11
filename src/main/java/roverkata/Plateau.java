@@ -4,7 +4,7 @@ public class Plateau {
     private final int maxUp;
     private final int maxLeft;
 
-    Plateau(int maxLeft, int maxUp) {
+    public Plateau(int maxLeft, int maxUp) {
         this.maxLeft = maxLeft;
         this.maxUp = maxUp;
     }

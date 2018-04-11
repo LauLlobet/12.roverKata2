@@ -1,7 +1,7 @@
 package roverkata;
 
-import java.util.Arrays;
-import java.util.stream.Collector;
+import roverkata.states.StartPlateauState;
+import roverkata.states.State;
 
 public class App1 {
     private Plateau plateau;
@@ -9,29 +9,23 @@ public class App1 {
     private int step =0;
     private InstructionsApplyier instructionsApplyier;
     private String output = "";
+    private State state = new StartPlateauState();
 
     public int getPlateauHeigth() {
         return plateau.getHeigth();
     }
 
+
+
+
     public void sendInput(String input) {
-        if(step == 0) {
-            Integer[] inputInts = Arrays.stream(input.split(" ")).map(x -> Integer.parseInt(x)).toArray(Integer[]::new);
-            plateau = new Plateau(inputInts[0], inputInts[1]);
-        }
-        if(step == 1){
-            String[] results = input.split(" ");
-            currentRover = new Rover(plateau,new Position(Integer.parseInt(results[0]),(int)Integer.parseInt(results[1]),Orientation.from(results[2])));
-            instructionsApplyier = new InstructionsApplyier(currentRover);
-        }
-        if(step == 2){
-            instructionsApplyier.applyInstruction(input);
-            output += currentRover.toString();
-            step = 1;
-            return;
-        }
-        step++;
+        state = state.nextState(input, this);
     }
+
+
+
+
+
 
     public Position getCurrentRoverPosition() {
         return currentRover.getPosition();
@@ -39,5 +33,25 @@ public class App1 {
 
     public String getOutput() {
         return output;
+    }
+
+    public void setPlateau(Plateau plateau) {
+        this.plateau = plateau;
+    }
+
+    public Plateau getPlateau() {
+        return plateau;
+    }
+
+    public void setCurrentRover(Rover currentRover) {
+        this.currentRover = currentRover;
+    }
+
+    public void setInstructionsApplyier(InstructionsApplyier instructionsApplyier) {
+        this.instructionsApplyier = instructionsApplyier;
+    }
+
+    public InstructionsApplyier getInstructionsApplyier() {
+        return instructionsApplyier;
     }
 }
