@@ -13,7 +13,7 @@ public class StartPlateauState extends State{
     }
 
     public void startPlateau(String input, App1 context) {
-        Integer[] inputInts = Arrays.stream(input.split(" ")).map(x -> Integer.parseInt(x)).toArray(dummy_::new);
+        Integer[] inputInts = Arrays.stream(input.split(" ")).map(x -> Integer.parseInt(x)).toArray(Integer[]::new);
         context.setPlateau( new Plateau(inputInts[0], inputInts[1]));
     }
 }

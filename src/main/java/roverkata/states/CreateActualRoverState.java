@@ -10,13 +10,22 @@ public class CreateActualRoverState extends State {
     }
 
     public void createActualRover(String input, App1 app1) {
-        String[] results = input.split(" ")
-                Rover currentRover = new Rover(app1.getPlateau(),
-                        new Position(Integer.parseInt(results[0]),
-                                Integer.parseInt(results[1]),
-                                Orientation.from(results[2])));
-        app1.setCurrentRover(currentRover);
-        app1.setInstructionsApplyier(new InstructionsApplyier(currentRover));
+        String[] results = input.split(" ");
 
+        Rover currentRover = createRoverFormInput(app1.getPlateau(), results);
+
+        app1.setCurrentRover(currentRover);
+        app1.prepareInstructionApplyierFromCurrentRover();
+    }
+
+    private Rover createRoverFormInput(Plateau plateau, String[] results) {
+        return new Rover(plateau,
+                createPositionFromInput(results));
+    }
+
+    private Position createPositionFromInput(String[] results) {
+        return new Position(Integer.parseInt(results[0]),
+                            Integer.parseInt(results[1]),
+                            Orientation.from(results[2]));
     }
 }

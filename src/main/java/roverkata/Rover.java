@@ -30,6 +30,6 @@ public class Rover {
     }
 
     public String toString(){
-        return position.getX() + " " + position.getY()+ " "+ position.getOrientation().toString()+"\n";
+        return position.getX() + " " + position.getY()+ " "+ position.getOrientation().toString();
     }
 }

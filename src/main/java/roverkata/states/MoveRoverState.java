@@ -13,7 +13,6 @@ public class MoveRoverState extends State {
     private void moveRover(String input, App1 context) {
         InstructionsApplyier instructionsApplyier = context.getInstructionsApplyier();
         instructionsApplyier.applyInstruction(input);
-        context.addOutput(context.getCurrentRover())
-        currentRover.toString());
+        context.addCurrentRoverToOutput();
     }
 }
