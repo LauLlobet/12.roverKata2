@@ -17,7 +17,6 @@ public class RoverShould {
     @Test
     public void
     spin() {
-
         rover.spinLeft();
        assertThat(rover.getOrientation(),is(Orientation.WEST));
 

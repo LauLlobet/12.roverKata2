@@ -8,6 +8,11 @@ public abstract class Instruction {
         switch(instructionChar){
             case 'M':
                 return new MoveInstrucction();
+            case 'L':
+                return new SpinLeftInstrucction();
+            case 'R':
+                return new SpinRightInstrucction();
+
         }
         return null;
     }

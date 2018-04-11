@@ -24,4 +24,8 @@ public class Plateau {
         }
         return position;
     }
+
+    public int getHeigth() {
+        return maxUp;
+    }
 }

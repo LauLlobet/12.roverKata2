@@ -28,4 +28,8 @@ public class Rover {
         position = position.move();
         position = plateau.wrapAroundIfOutisde(position);
     }
+
+    public String toString(){
+        return position.getX() + " " + position.getY()+ " "+ position.getOrientation().toString()+"\n";
+    }
 }

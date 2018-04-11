@@ -1,7 +1,14 @@
 package roverkata;
 
 public enum Orientation {
-    NORTH,SOUTH,EAST,WEST;
+    NORTH("N"),SOUTH("S"),EAST("E"),WEST("W");
+
+    private String string;
+
+
+    Orientation(String string) {
+        this.string = string;
+    }
 
     public Orientation spinLeft() {
         switch (this){
@@ -30,4 +37,24 @@ public enum Orientation {
         }
         return this;
     }
+
+
+    public static Orientation from(String result) {
+        switch (result.charAt(0)){
+            case 'N':
+                return Orientation.NORTH;
+            case 'W':
+                return Orientation.WEST;
+            case 'S':
+                return Orientation.SOUTH;
+            case 'E':
+                return Orientation.EAST;
+        }
+        return Orientation.NORTH;
+    }
+
+    public String toString(){
+        return this.string;
+    }
+
 }
