@@ -6,7 +6,7 @@ public class InstructionsApplyier {
 
     private final Rover rover;
 
-    public InstructionsApplyier(Rover rover) {
+    InstructionsApplyier(Rover rover) {
         this.rover = rover;
     }
 
@@ -15,6 +15,7 @@ public class InstructionsApplyier {
         for (char instructionChar: instructions
              ) {
             Instruction instruction = Instruction.defineFrom(instructionChar);
+            assert instruction != null;
             instruction.apply(rover);
         }
     }

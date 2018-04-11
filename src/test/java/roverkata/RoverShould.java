@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class RoverShould {
@@ -36,7 +35,6 @@ public class RoverShould {
     @Test
     public void
     wrap_around_defined_plateau_coordinates() {
-
         rover.spinLeft();
         for(int i=0; i<5;i++){
             rover.move();
