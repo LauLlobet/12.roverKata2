@@ -6,7 +6,7 @@ public class InstructionsApplyier {
 
     private final Rover rover;
 
-    InstructionsApplyier(Rover rover) {
+    public InstructionsApplyier(Rover rover) {
         this.rover = rover;
     }
 

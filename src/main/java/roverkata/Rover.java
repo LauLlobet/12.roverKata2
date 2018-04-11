@@ -4,7 +4,7 @@ public class Rover {
     private final Plateau plateau;
     private Position position;
 
-    Rover(Plateau plateau, Position position) {
+    public Rover(Plateau plateau, Position position) {
         this.plateau = plateau;
         this.position = position;
     }
@@ -30,6 +30,6 @@ public class Rover {
     }
 
     public String toString(){
-        return position.getX() + " " + position.getY()+ " "+ position.getOrientation().toString()+"\n";
+        return position.getX() + " " + position.getY()+ " "+ position.getOrientation().toString();
     }
 }

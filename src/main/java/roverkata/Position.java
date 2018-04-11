@@ -7,7 +7,7 @@ public class Position {
     private final int y;
     private final Orientation orientation;
 
-    Position(int x, int y, Orientation orientation) {
+    public Position(int x, int y, Orientation orientation) {
         this.x = x;
         this.y = y;
         this.orientation = orientation;
@@ -18,7 +18,7 @@ public class Position {
     }
 
     public Position spinRight() {
-        return new Position(x,y,orientation.spinRight());
+        return new Position(x, y, orientation.spinRight());
     }
     @Override
     public boolean equals(Object o) {
